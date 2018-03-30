@@ -17,7 +17,8 @@ namespace SecretChord
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            UnityConfig.Instance.RegisterComponents();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

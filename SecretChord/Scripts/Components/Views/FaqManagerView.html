@@ -1,0 +1,63 @@
+﻿<div class="ibox-content" id="newFaq">
+    <div class="row">
+        <br />
+        <div class="col-sm-6">
+            <h2 style="text-align: center;">Create FAQ</h2>
+        </div>
+        <div class="col-sm-6">
+            <h2 style="text-align: center; margin-bottom: 20px;">FAQ List</h2>
+        </div>
+        <div class="col-sm-6">
+            <br />
+            <form name="faqFrm">
+
+                <div class="form-group">
+                    <h4 for="question" class="control-label"><strong>Question</strong></h4>
+                    <div>
+                        <input ng-class="{'invalid':faqFrm.question.$invalid && faqFrm.question.$touched}" required ng-model="$ctrl.faqModel.question" name="question" type="text" placeholder="Question" class="form-control input-xlarge">
+                        <div class="has-error" ng-show="faqFrm.question.$invalid && faqFrm.question.$touched">This field is required</div>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h4 for="answer" class="control-label"><strong>Answer</strong></h4>
+                    <div class="controls">
+                        <textarea ng-class="{'invalid':faqFrm.answer.$invalid && faqFrm.answer.$touched}" style="resize: none" required ng-model="$ctrl.faqModel.answer" rows="3" name="answer" placeholder="Answer" class="form-control input-xlarge"></textarea>
+                        <div class="has-error" ng-show="faqFrm.answer.$invalid && faqFrm.answer.$touched">This field is required</div>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="btn-group btn">
+                    <div class="row">
+                        <button title="Submit a new FAQ item" type="button" class="btn btn-primary btn-xs" ng-disabled="faqFrm.$invalid" ng-click="$ctrl.postFaq(faqFrm)">Submit FAQ</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6" style="overflow-y: scroll; height: 780px">
+            <br /><br />
+            <div class="well text-left" style="background-color: white;" ng-repeat="item in $ctrl.faqItems">
+                <div>
+                    <strong>Question: </strong>{{item.question}}
+                </div><br />
+                <div>
+                    <strong>Answer: </strong>{{item.answer}}
+                </div><br />
+                <div class="btn-group btn pull-right">
+                    <div class="row">
+                        <button title="Edit this item" type="button" class="btn btn-xs btn-primary" ng-click="$ctrl.populateFaqFormWithPostedFaq(item)">Edit</button>
+                        <button title="Delete this item" type="button" class="btn btn-xs btn-danger" ng-click="$ctrl.deleteFaq(item.id)">Delete</button>
+                    </div>
+                </div><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+

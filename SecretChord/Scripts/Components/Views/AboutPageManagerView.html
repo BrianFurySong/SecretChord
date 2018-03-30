@@ -1,0 +1,82 @@
+﻿<style>
+    .ibox-content {
+        border-top: none;
+    }
+
+    /*Errors Start*/
+    /*Error Message Color*/
+    .has-error {
+        color: #fa755a;
+    }
+
+    /*Invalid Field Border Color*/
+    .invalid {
+        border-color: #fa755a;
+    }
+    /*Errors End*/
+
+    button {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+</style>
+<div class="col-md-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content" style="border-radius: 8px 8px 8px 8px;">
+            <div class="row">
+                <!--<uib-tabset active="active">
+                <uib-tab tabindex="0" heading="Features">-->
+                <div class="col-md-6 b-r">
+                    <div class="ibox-content">
+                        <h3 class="m-t-none m-b" style="text-align: center">Create Features About This Page</h3>
+                        <p style="text-align: center">Create a front page feature tile about the site.</p>
+                    </div>
+                    <form name="aboutForm" role="form">
+                        <div class="form-group">
+                            <label>Head Line</label>
+                            <input ng-class="{'invalid':aboutForm.headLine.$invalid && aboutForm.headLine.$touched}" required type="text" placeholder="Enter the head line..." name="headLine" class="form-control" ng-model="$ctrl.aboutModel.headLine" />
+                            <div style="color: red;" class="has-error" ng-show="aboutForm.headLine.$invalid && aboutForm.headLine.$touched">This field is required</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea ng-class="{'invalid':aboutForm.contentText.$invalid && aboutForm.contentText.$touched}" style="resize: none;" required ng-model="$ctrl.aboutModel.contentText" name="contentText" placeholder="write your content here..." class="form-control input-xlarge"></textarea>
+                            <div style="color: red;" class="has-error" ng-show="aboutForm.contentText.$invalid && aboutForm.contentText.$touched">This field is required</div>
+                        </div>
+
+                        <about-page-pic-upload ng-model="$ctrl.aboutModel.imageURL" file-repository-id-request="false" api="$ctrl.gridApi"></about-page-pic-upload>
+
+                        <div class="form-group">
+                            <button title="Submit a new feature" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="aboutForm.$invalid" ng-hide="hideSubmitBtn" ng-click="$ctrl.postAbout(aboutForm)"><strong>Submit</strong></button>
+                        </div>
+
+                        <div class="form-group">
+                            <button title="Edit the feature" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="aboutForm.$invalid" ng-show="showUpdateBtn" ng-click="$ctrl.putAbout(aboutForm)"><strong>Update</strong></button>
+                        </div>
+                        <!--<button title="Clear the current picture. You have to upload a new picture." class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" ng-click="$ctrl.clearPic()"><strong>Clear Picture</strong></button>-->
+
+                        <div class="form-group">
+                            <button title="Clear the current picture. You have to upload a new picture." class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" ng-disabled="aboutForm.$invalid" ng-show="showPicClearBtn" ng-click="$ctrl.clearPic()"><strong>Clear Picture</strong></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="ibox-content">
+                        <h3 class="m-t-none m-b" style="text-align: center">Features List</h3>
+                        <p style="text-align: center">List of features in order by the most recent post.</p>
+                    </div>
+                    <div style="overflow-y: scroll; height:780px;">
+                        <div class="well col-sm-6 col-sm-offset-3" style="background-color: white;" ng-repeat="item in $ctrl.allAbouts">
+                            <div><strong>Head Line: </strong>{{item.headLine}}</div><br />
+                            <div><strong>Content: </strong>{{item.contentText}}</div><br />
+                            <div><strong>Image: </strong><br /><img ng-src="{{item.imageURL}}" /></div>
+                            <!--<pre>{{item.imageURL}}</pre>-->
+                            <a title="Delete this feature" class="btn btn-link" style="cursor: pointer; float: right; color:red"><i class="fa fa-trash" ng-click="$ctrl.deleteAbout(item.id)"></i></a>
+                            <a title="Edit the current information" class="btn btn-link" style="cursor: pointer; float: right; color:#1ab394"><i class="fa fa-pencil" ng-click="$ctrl.editAbout(item)"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

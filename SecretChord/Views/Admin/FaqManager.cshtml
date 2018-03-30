@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "FAQ Manager";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<faq-manager></faq-manager>
+
+@section styles{
+    <style>
+        .ibox-content {
+            border-radius: 10px;
+            min-height: 525px;
+        }
+
+        .nav-tabs {
+            border-bottom: none;
+        }
+            /*GENERAL TAB*/
+            .nav-tabs > li > a {
+                margin: 0px;
+                color: #676a6c;
+                border-radius: 8px 8px 0 0;
+                background-color: #e4e4e4;
+            }
+                /*GENERAL TAB HOVER*/
+                .nav-tabs > li > a:hover {
+                    color: white;
+                    background-color: #a7a7a7;
+                }
+            /*ACTIVE TAB*/
+            .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+                background-color: #2f4050;
+                color: white;
+            }
+
+        /* FOR ADD NEW CATEGORY MODAL */
+        /*.modal-header {
+            background-color: #2f4050;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px
+        }
+
+        .modalTitle {
+            color: white;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }*/
+
+        .has-error {
+            color: #fa755a;
+        }
+
+        /*Invalid Field Border Color*/
+        .invalid {
+            border-color: #fa755a;
+        }
+
+    </style>
+}
+
+
+@section scripts{
+
+    <script src="~/Scripts/Components/FaqManagerComponent.js"></script>
+}
